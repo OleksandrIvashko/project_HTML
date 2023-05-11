@@ -1,0 +1,30 @@
+$desktop-xl: 1600px;
+$desktop-l: 1358px;
+$tablet: 1024px;
+$mobile: 768px;
+$mobile-s: 480px;
+
+// colors
+$white: #fff;
+$black: #404040;
+$purple: #5A30F0;
+$middleGrey: #E2E8F0;
+$lightGrey: #F3F6FB;
+
+$font: "TTTravels", Arial, sans-serif;
+
+@function get-vw($target) {
+  $vw-context: (1440 * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+@function get-vm($target) {
+  $vw-context: (500 * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+@mixin content {
+  content: '';
+  position: absolute;
+  display: block;
+}

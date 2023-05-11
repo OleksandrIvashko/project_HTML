@@ -1,0 +1,55 @@
+@import "vars";
+@import "libs";
+@import "fonts";
+@import "typography";
+@import "forms";
+
+* {
+	box-sizing: border-box;
+
+	&:after,
+	&:before {
+		box-sizing: border-box;
+	}
+}
+
+html {
+	min-height: 100%;
+	font-family: $font;
+	font-size: 18px;
+	line-height: 1.4;
+	font-weight: 400;
+	letter-spacing: 0;
+	color: $black;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100%;
+	color: $black;
+	font-size: 100%;
+	min-width: 375px;
+	background: $white;
+	scroll-behavior: smooth;
+}
+
+.wr {
+	padding: 0 15px;
+	max-width: 1350px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.main {
+	overflow: hidden;
+	min-height: 100vh;
+}
+
+// parts
+@import "parts/header";
+
+//components
+@import "./components/hero";
+@import "./components/advantages";
+@import "./components/process";
+@import "./components/example";

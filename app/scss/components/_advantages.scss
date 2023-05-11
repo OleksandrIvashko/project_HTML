@@ -1,0 +1,117 @@
+.advantages {
+    padding: 40px 0;
+
+    &-content {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 40px 40px;
+        grid-gap: 40px 40px;
+        flex-wrap: wrap;
+        @media only screen and (max-width: $mobile) {
+            gap: 20px 20px;
+            grid-gap: 20px 20px;
+        }
+    }
+
+    &-block {
+        overflow: hidden;
+        width: 33%;
+        max-width: 300px;
+        min-height: 328px;
+        padding: 20px 40px 0;
+        background: $lightGrey;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.4s;
+        opacity: 0;
+        visibility: hidden;
+        &:hover {
+            .advantages-description {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(0);
+            }
+        }
+        @media only screen and (max-width: $tablet) {
+            width: 45%;
+            max-width: none;   
+        }
+        @media only screen and (max-width: $mobile) {
+            width: 100%;
+            min-height: 250px;
+        }
+    }
+
+    .b-advantages-block {
+         animation: showBlock 1s forwards;
+
+         &.b-one {
+            animation-delay: 0.1s;
+         }
+
+         &.b-two {
+            animation-delay: 0.2s;
+         }
+
+         &.b-three {
+            animation-delay: 0.3s;
+         }
+         
+         &.b-four {
+            animation-delay: 0.4s;
+         }
+    }
+
+    &-title {
+        font-weight: 500;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+        @media only screen and (max-width: $mobile) {
+            font-size: 16px;
+        }
+    }
+
+    &-img {
+        max-width: 200px;
+        margin-top: auto;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &-description {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: $purple;
+        padding: 30px;
+        transition: all 0.3s;
+        color: $white;
+        font-size: 16px;
+        transform: translate(0, 100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes showBlock {
+    0% {
+        visibility: hidden;
+        transform: translate(0, 80%);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0);
+    }
+}

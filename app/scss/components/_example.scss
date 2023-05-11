@@ -1,0 +1,325 @@
+.example {
+    padding: get-vw(60px) 0 0;
+    width: get-vw(1440px);
+    min-width: 375px;
+
+    &-tab {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        height: get-vw(800px);
+        @media only screen and (max-width: $mobile) {
+            flex-direction: column;
+            height: 100%;
+        }
+
+        &-nav {
+            margin: auto;
+            width: 100%;
+            @media only screen and (max-width: $mobile) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 5px 5px;
+                grid-gap: 5px 5px;
+            }
+        }
+
+        &-element {
+            display: inline-block;
+            font-size: get-vw(44px);
+            line-height: 1.2;
+            color: $white;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: get-vw(22px);
+            cursor: pointer;
+            &:last-child {
+                margin: 0;
+            }
+            &:hover {
+                opacity: 1;
+                font-style: italic;
+                font-weight: 400;
+            }
+            @media only screen and (max-width: $mobile) {
+                margin-bottom: 0;
+            }
+        }
+
+        .j-show {
+            display: block;
+            animation: showImg 1s forwards;
+
+            .example-into {
+                animation: showInto 1s forwards;
+                animation-delay: 1s;
+            }
+        }
+
+        &-content {
+            transition: all 0.3s;
+            display: none;
+            width: 100%;
+            height: 100%;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .j-active {
+        position: relative;
+        font-style: italic;
+        padding-left: get-vw(50px);
+        &:after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: get-vw(40px);
+            height: get-vw(24px);
+            background: url(../../img/example/arrow.svg) center center no-repeat;
+            background-size: cover;
+            left: 0;
+            top: 50%;
+            margin-top: get-vw(-12px);
+        }
+    }
+
+    &-left {
+        background: $purple;
+        width: 25%;
+        @media only screen and (max-width: $mobile) {
+            width: 100%;
+        }
+    }
+
+    &-left-inner {
+        padding: get-vw(35px);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &-right {
+        width: 75%;
+        position: relative;
+        @media only screen and (max-width: $mobile) {
+            width: 100%;
+        }
+    }
+
+    &-into {
+        position: absolute;
+        opacity: 0;
+
+        &.b-extract {
+            top: get-vw(265px);
+            left: get-vw(335px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(130px);
+                left: get-vm(165px);
+            }
+        }
+
+        &.b-plate {
+            top: get-vw(445px);
+            left: get-vw(263px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(215px);
+                left: get-vm(125px);
+            }
+        }
+
+        &.b-refrigerator {
+            top: get-vw(375px);
+            right: get-vw(405px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(175px);
+                left: get-vm(305px);
+            }
+        }
+
+        &.b-nightstand {
+            top: get-vw(470px);
+            left: get-vw(480px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(230px);
+                left: get-vm(220px);
+            }
+        }
+
+        &.b-table {
+            top: get-vw(590px);
+            left: get-vw(585px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(290px);
+                left: get-vm(275px);
+            }    
+        }
+
+        &.b-floor {
+            bottom: get-vw(50px);
+            left: get-vw(300px);
+            @media only screen and (max-width: $mobile) {
+                bottom: get-vm(40px);
+                left: get-vm(135px);
+            }
+        }
+
+        &.b-sink {
+            left: get-vw(840px);
+            top: get-vw(500px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(240px);
+                left: get-vm(400px);
+            }
+        }
+
+
+        &.b-mirror {
+            top: get-vw(240px);
+            left: get-vw(315px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(115px);
+                left: get-vm(155px);
+            }
+        }
+
+        &.b-tile {
+            left: get-vw(710px);
+            top: get-vw(380px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(180px);
+                left: get-vm(335px);
+            }
+        }
+
+        &.b-bath {
+            top: get-vw(640px);
+            left: get-vw(880px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(305px);
+                left: get-vm(415px);
+            }
+        }
+
+        &.b-toilet {
+            top: get-vw(700px);
+            left: get-vw(650px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(340px);
+                left: get-vm(310px);
+            }
+        }
+
+        &.b-stone {
+            bottom: get-vw(65px);
+            left: get-vw(405px);
+            @media only screen and (max-width: $mobile) {
+                top: get-vm(345px);
+                left: get-vm(190px);
+            }
+        }
+
+        &-text {
+            max-width: get-vw(400px);
+            padding: get-vw(8px) get-vw(10px);
+            border-radius: 2px;   
+            background: $white;
+            color: #636C81;
+            font-size: get-vw(13px);
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: get-vw(10px);
+            position: absolute;
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            bottom: 100%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            @media only screen and (max-width: $mobile) {
+                font-size: 12px;
+                max-width: 200px;
+            }
+            &:after {
+                position: absolute;
+                display: block;
+                content: "";
+                width: get-vw(8px);
+                height: get-vw(8px);
+                background: #fff;
+                bottom: get-vw(-4px);
+                left: 50%;
+                margin-left:get-vw(-4px);
+                transform: rotate(45deg);
+            }
+        }
+
+        &-icon {
+            width: get-vw(30px);
+            height: get-vw(30px);
+            background: #5A30F0;
+            top: 0;
+            right: 0;
+            color: white;
+            font-size: get-vw(34px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: get-vw(40px);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 0 0 0 get-vw(10px) rgba($purple, 0.2);
+            @media only screen and (max-width: $mobile) {
+                width: 15px;
+                height: 15px;
+                font-size: 16px;
+                box-shadow: 0 0 0 8px rgba($purple, 0.2);
+            }
+            &:hover {
+                transform: rotate(45deg);
+                box-shadow: none;
+                
+                & + span {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-50%, 0);
+                }
+            }
+        }
+    }
+}
+
+@keyframes showInto {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes showImg {
+    0% {
+        opacity: 0;
+        transform: translate(100%, -10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
