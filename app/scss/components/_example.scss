@@ -35,6 +35,7 @@
             opacity: 0.7;
             margin-bottom: get-vw(22px);
             cursor: pointer;
+            transition: opacity 0.3s, padding 0.3s;
             &:last-child {
                 margin: 0;
             }
@@ -46,15 +47,32 @@
             @media only screen and (max-width: $mobile) {
                 margin-bottom: 0;
             }
-        }
 
-        .j-show {
-            display: block;
-            animation: showImg 1s forwards;
+            &:after {
+                position: absolute;
+                display: block;
+                content: "";
+                width: get-vw(40px);
+                height: get-vw(24px);
+                background: url(../../img/example/arrow.svg) center center no-repeat;
+                background-size: cover;
+                left: 0;
+                top: 50%;
+                margin-top: get-vw(-12px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
 
-            .example-into {
-                animation: showInto 1s forwards;
-                animation-delay: 1s;
+            &.j-active {
+                position: relative;
+                font-style: italic;
+                padding-left: get-vw(50px);
+                pointer-events: none;
+                &:after {
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
         }
 
@@ -63,30 +81,32 @@
             display: none;
             width: 100%;
             height: 100%;
+            position: relative;
             img {
                 display: block;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
-        }
-    }
 
-    .j-active {
-        position: relative;
-        font-style: italic;
-        padding-left: get-vw(50px);
-        &:after {
-            position: absolute;
-            display: block;
-            content: "";
-            width: get-vw(40px);
-            height: get-vw(24px);
-            background: url(../../img/example/arrow.svg) center center no-repeat;
-            background-size: cover;
-            left: 0;
-            top: 50%;
-            margin-top: get-vw(-12px);
+            &.j-show {
+                display: block;
+                animation: showImg 1s forwards;
+    
+                .example-into {
+                    animation: showInto 1s forwards;
+                    animation-delay: 1s;
+                }
+            }
+
+            &.b-hover:not(.j-show) {
+                animation: showImgHover 1s forwards;
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: block;
+                z-index: 100;
+            }
         }
     }
 
@@ -315,11 +335,20 @@
 
 @keyframes showImg {
     0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes showImgHover {
+    0% {
         opacity: 0;
-        transform: translate(100%, -10%);
+        transform: translateX(100%);
     }
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(50%);
     }
 }
